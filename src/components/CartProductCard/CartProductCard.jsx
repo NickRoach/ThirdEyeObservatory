@@ -1,4 +1,4 @@
-import styles from "./ProductCard.module.scss";
+import styles from "./CartProductCard.module.scss";
 import {
     addToCart,
     getCart,
@@ -7,7 +7,7 @@ import {
 import { useEffect, useState, useStateRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export const ProductCard = ({ product, userName }) => {
+export const CartProductCard = ({ product, userName }) => {
     let [currentQuant, setCurrentQuant] = useState();
 
     const getQuantity = async () => {
@@ -46,7 +46,7 @@ export const ProductCard = ({ product, userName }) => {
     return (
         <div className={styles.card}>
             <div className={styles.productName}>{product.identifier}</div>
-
+            <div className="price">${product.unitPrice}</div>
             <div>
                 <Link to={`/product/${product.id}`}>
                     <img
@@ -56,19 +56,15 @@ export const ProductCard = ({ product, userName }) => {
                     />
                 </Link>
             </div>
-            <div className="price">Unit price: ${product.unitPrice}</div>
-            <div className={styles.cartUpdater}>
-                <p>Quantity in cart</p>
-                <button id="cardRemove" onClick={removeHandler}>
-                    -
-                </button>
-                <p>{currentQuant}</p>
 
-                <button id="cardAdd" onClick={addHandler}>
-                    +
-                </button>
-            </div>
+            <button id="cardAdd" onClick={addHandler}>
+                +
+            </button>
+            <p>Number in cart: {currentQuant}</p>
+            <button id="cardRemove" onClick={removeHandler}>
+                -
+            </button>
         </div>
     );
 };
-export default ProductCard;
+export default CartProductCard;

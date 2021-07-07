@@ -9,7 +9,6 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const getData = async () => {
         const data = await getProducts();
-        // console.log(data);
         setProducts(data);
     };
 

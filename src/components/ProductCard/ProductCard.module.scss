@@ -1,7 +1,23 @@
 .card {
-    border: 1px solid blue;
+    border: 1px solid rgb(117, 117, 117);
     padding: 10px;
     border-radius: 10px;
     width: 300px;
-    background-color: rgb(204, 236, 204);
+    background-color: #b9d1d393;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.062);
+    &:hover {
+        box-shadow: 0px 0px 5px 10px rgba(255, 255, 255, 0.205);
+    }
+}
+
+.productImage {
+    width: 100%;
+}
+
+.cartUpdater {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 30px;
+    align-items: center;
 }
