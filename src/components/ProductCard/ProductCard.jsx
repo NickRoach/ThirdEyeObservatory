@@ -1,5 +1,10 @@
 import styles from "./ProductCard.module.scss";
-import { addToCart } from "../../services/fireStoreCRUD/fireStoreCRUD";
+import {
+    addToCart,
+    removeFromCart,
+    getCart,
+} from "../../services/fireStoreCRUD/fireStoreCRUD";
+import { useEffect } from "react";
 
 export const ProductCard = ({ product }) => {
     const addHandler = () => {
@@ -7,7 +12,7 @@ export const ProductCard = ({ product }) => {
     };
 
     const removeHandler = () => {
-        console.log("removeHandler called");
+        removeFromCart(product.id, 1, "cart1");
     };
 
     return (
@@ -22,6 +27,7 @@ export const ProductCard = ({ product }) => {
             <button id="cardAdd" onClick={addHandler}>
                 Add one to Cart
             </button>
+            {/* <p>{numberInCart}</p> */}
             <button id="cardRemove" onClick={removeHandler}>
                 Remove one from Cart
             </button>
