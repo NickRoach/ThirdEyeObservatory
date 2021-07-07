@@ -56,7 +56,11 @@ const Cart = () => {
                                 {cartEntries[index].numberOf *
                                     product.unitPrice}
                             </h3>
-                            <ProductCard product={product} key={product.id} />
+                            <ProductCard
+                                product={product}
+                                key={product.id}
+                                userName={userName}
+                            />
                         </div>
                     );
                 })}

@@ -1,18 +1,45 @@
 import styles from "./ProductCard.module.scss";
 import {
     addToCart,
-    removeFromCart,
     getCart,
+    removeFromCart,
 } from "../../services/fireStoreCRUD/fireStoreCRUD";
-import { useEffect } from "react";
+import { useEffect, useState, useStateRef } from "react";
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, userName }) => {
+    let [currentQuant, setCurrentQuant] = useState();
+
+    const updateCount = async () => {
+        const productsObject = await getCart(userName);
+        const products = productsObject.products;
+
+        let currentAmount = 0;
+
+        //get the current cart numberOf for the item with this id
+        products.forEach((entry) => {
+            if (entry.productId === product.id) {
+                currentAmount = entry.numberOf;
+            }
+        });
+        setCurrentQuant(currentAmount);
+    };
+
+    useEffect(() => {
+        updateCount();
+    }, []);
+
     const addHandler = () => {
-        addToCart(product.id, 1, "cart1");
+        setCurrentQuant(++currentQuant);
+        addToCart(product.id, 1, userName);
+        // updateCount();
     };
 
     const removeHandler = () => {
-        removeFromCart(product.id, 1, "cart1");
+        if (currentQuant > 0) {
+            setCurrentQuant(--currentQuant);
+        }
+        removeFromCart(product.id, 1, userName);
+        // updateCount();
     };
 
     return (
@@ -25,11 +52,11 @@ export const ProductCard = ({ product }) => {
             <div className={styles.description}>{product.description}</div>
 
             <button id="cardAdd" onClick={addHandler}>
-                Add one to Cart
+                Add one to cart
             </button>
-            {/* <p>{numberInCart}</p> */}
+            <p>Number in cart: {currentQuant}</p>
             <button id="cardRemove" onClick={removeHandler}>
-                Remove one from Cart
+                Remove one from cart
             </button>
         </div>
     );
