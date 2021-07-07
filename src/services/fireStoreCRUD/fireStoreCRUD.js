@@ -19,19 +19,33 @@ export const getProducts = async () => {
     return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
 
-export const getCart = async () => {
-    const col = firestore.collection("carts");
+export const getCart = async (userName) => {
+    const col = firestore.collection("carts").doc(userName);
     const queryData = await col.get();
-    const documents = queryData.docs;
-    return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
+    const productsObject = { id: queryData.id, ...queryData.data() };
+    return productsObject;
 };
 
-export const addToCart = async (productId, numberOf) => {
+// update
+export const addToCart = async (productId, numberOf, userName) => {
+    // const col = firestore.collection("carts");
+    //check if the item with that id is already in the cart
+
+    const currentCart = await getCart(userName);
+    const currentCartProducts = currentCart.products;
+    console.log("currentCartProducts: ", currentCartProducts);
+
     const productObject = {
         productId: productId,
         numberOf: numberOf,
     };
-    console.log("AddtoCart was called");
-    const col = firestore.collection("carts");
-    await col.add(productObject);
+
+    const newCartProductObjs = [...currentCartProducts, productObject];
+
+    const newCart = {
+        products: newCartProductObjs,
+    };
+
+    const col = firestore.collection("carts").doc(userName);
+    await col.update(newCart);
 };

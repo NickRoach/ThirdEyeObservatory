@@ -3,7 +3,7 @@ import { addToCart } from "../../services/fireStoreCRUD/fireStoreCRUD";
 
 export const ProductCard = ({ product }) => {
     const addHandler = () => {
-        addToCart(product.id, 1);
+        addToCart(product.id, 1, "cart1");
     };
 
     const removeHandler = () => {

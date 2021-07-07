@@ -4,7 +4,10 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import {
     getCart,
     getProduct,
+    addToCart,
 } from "../../services/fireStoreCRUD/fireStoreCRUD";
+
+const userName = "cart1"; //cart1 is a user identifier. It is hard coded for now, but would be dynamically assigned in a real application
 
 const Cart = () => {
     const [cartEntries, setCartEntries] = useState([]);
@@ -12,17 +15,18 @@ const Cart = () => {
 
     //this downloads the cart, which is a list of objects, each containing a product ID and the numberOf that item
     const getCartEntries = async () => {
-        const data = await getCart();
+        const data = await getCart(userName);
+        console.log(data);
         setCartEntries(data);
     };
 
     //I need to make an array which contains the product objects from the product collection that are referenced in the cart entries
     const getCartArray = async () => {
-        const promisesArr = cartEntries.map((entry) => {
-            return getProduct(entry.productId);
-        });
-        const resolvedPromises = await Promise.all(promisesArr);
-        setCartArray(resolvedPromises);
+        // const promisesArr = cartEntries.map((entry) => {
+        //     return getProduct(entry.productId);
+        // });
+        // const resolvedPromises = await Promise.all(promisesArr);
+        // setCartArray(resolvedPromises);
     };
 
     useEffect(() => {
@@ -33,11 +37,11 @@ const Cart = () => {
         getCartArray(); //gets the product objects referenced in the cart object
     }, [cartEntries]);
 
-    // const runThis = () => {
-    //     console.log("cartEntries", cartEntries);
-    //     setCartArray(cartArray);
-    //     console.log("cartArray", cartArray);
-    // };
+    const runThis = () => {
+        // addToCart(product.id);
+        // setCartArray(cartArray);
+        // console.log("cartArray", cartArray);
+    };
 
     return (
         <div className={styles.cart}>
@@ -58,7 +62,7 @@ const Cart = () => {
                 })}
                 <br />
             </div>
-            {/* <button onClick={runThis}>Run this</button> */}
+            <button onClick={runThis}>Run this</button>
         </div>
     );
 };
