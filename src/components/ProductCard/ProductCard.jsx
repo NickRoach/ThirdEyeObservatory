@@ -20,10 +20,10 @@ export const ProductCard = ({ product }) => {
             <div className={styles.description}>{product.description}</div>
 
             <button id="cardAdd" onClick={addHandler}>
-                Add to Cart
+                Add one to Cart
             </button>
             <button id="cardRemove" onClick={removeHandler}>
-                Remove from Cart
+                Remove one from Cart
             </button>
         </div>
     );

@@ -26,21 +26,37 @@ export const getCart = async (userName) => {
     return productsObject;
 };
 
-// update
 export const addToCart = async (productId, numberOf, userName) => {
-    // const col = firestore.collection("carts");
-    //check if the item with that id is already in the cart
-
     const currentCart = await getCart(userName);
     const currentCartProducts = currentCart.products;
-    console.log("currentCartProducts: ", currentCartProducts);
 
-    const productObject = {
-        productId: productId,
-        numberOf: numberOf,
-    };
+    //get the index of the product object that matches the one being added
 
-    const newCartProductObjs = [...currentCartProducts, productObject];
+    let foundIndex = -1;
+
+    currentCartProducts.forEach((prodObj, index) => {
+        if (prodObj.productId === productId) {
+            foundIndex = index;
+        }
+    });
+
+    let newCartProductObjs = [];
+
+    if (foundIndex === -1) {
+        //if the item isn't already in the cart, then add it
+        const productObject = {
+            productId: productId,
+            numberOf: numberOf,
+        };
+        newCartProductObjs = [...currentCartProducts, productObject];
+    } else {
+        //if it's already in there, increase the quanitity by one
+        newCartProductObjs = [...currentCartProducts];
+        newCartProductObjs[foundIndex] = {
+            productId: productId,
+            numberOf: newCartProductObjs[foundIndex].numberOf + 1,
+        };
+    }
 
     const newCart = {
         products: newCartProductObjs,
@@ -49,3 +65,47 @@ export const addToCart = async (productId, numberOf, userName) => {
     const col = firestore.collection("carts").doc(userName);
     await col.update(newCart);
 };
+
+/////////////////////////////////////////////////
+//////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+// export const removeFromCart = async (productId, numberOf, userName) => {
+//     const currentCart = await getCart(userName);
+//     const currentCartProducts = currentCart.products;
+
+//     //get the index of the product object that matches the one being added
+
+//     let foundIndex = -1;
+
+//     currentCartProducts.forEach((prodObj, index) => {
+//         if (prodObj.productId === productId) {
+//             foundIndex = index;
+//         }
+//     });
+
+//     let newCartProductObjs = [];
+
+//     if (foundIndex === -1) {
+//         //if the item isn't already in the cart, then add it
+//         const productObject = {
+//             productId: productId,
+//             numberOf: numberOf,
+//         };
+//         newCartProductObjs = [...currentCartProducts, productObject];
+//     } else {
+//         //if it's already in there, increase the quanitity by one
+//         newCartProductObjs = [...currentCartProducts];
+//         newCartProductObjs[foundIndex] = {
+//             productId: productId,
+//             numberOf: newCartProductObjs[foundIndex].numberOf + 1,
+//         };
+//     }
+
+//     const newCart = {
+//         products: newCartProductObjs,
+//     };
+
+//     const col = firestore.collection("carts").doc(userName);
+//     await col.update(newCart);
+// };
