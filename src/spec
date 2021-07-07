@@ -6,3 +6,20 @@ You should be able to add, update the quantity of a product on the home, product
 You should be able to remove products from the cart.
 Tips:
 Use two collections, one for products and one for cart objects
+
+// Product Object:
+{
+    name: ...,
+    price: ...,
+    variants: [ ... ]
+}
+// Cart Object:
+{
+    products: [
+        {
+            productId: ...,
+            quantity: ...,
+            variant: ...
+        },
+    ]
+}

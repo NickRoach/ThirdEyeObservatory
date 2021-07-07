@@ -1,5 +1,13 @@
 .display {
     display: flex;
-    // grid-template-columns: 1fr, 1fr, 1fr;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr, 1fr, 1fr;
     grid-gap: 10px;
+}
+
+.home {
+    &_heading {
+        color: bisque;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 }

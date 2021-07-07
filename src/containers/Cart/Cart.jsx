@@ -21,29 +21,18 @@ const Cart = () => {
         return prodArr;
     };
 
-    const getCartProducts = async () => {
-        const cartArr = await getCartObjectArr();
-        setCartArray(cartArr);
-    };
-
     const getCartProductArr = async () => {
-        const promiseArr = cartArray.map((entry) => {
+        const cartArr = await getCartObjectArr();
+        const promiseArr = cartArr.map((entry) => {
             return getProduct(entry.productId);
         });
-
         const resolvedArray = await Promise.all(promiseArr);
-        // console.log("resolvedArray: ", await resolvedArray);
-        setCartProducts(await resolvedArray);
+        setCartProducts(resolvedArray);
     };
 
     useEffect(() => {
-        getCartProducts();
         getCartProductArr();
     }, []);
-
-    const runThis = () => {
-        // console.log("cartArray[0].productId: ", cartArray[0].productId);
-    };
 
     return (
         <div className={styles.cart}>
@@ -59,8 +48,6 @@ const Cart = () => {
                         />
                     );
                 })}
-                {/* <button onClick={runThis}>Runthis</button> */}
-                <br />
             </div>
         </div>
     );

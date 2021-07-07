@@ -17,8 +17,8 @@ const Home = () => {
     }, []);
 
     return (
-        <>
-            <h2>This is the Home page</h2>
+        <div className={styles.home}>
+            <h2 className={styles.home_heading}>This is the Home page</h2>
             <div className={styles.display}>
                 {products.map((product) => (
                     <ProductCard
@@ -28,7 +28,7 @@ const Home = () => {
                     />
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
