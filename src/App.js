@@ -7,7 +7,7 @@ import {
     Link,
     Redirect,
 } from "react-router-dom";
-import Home from "./containers/Home";
+import Products from "./containers/Products";
 import Cart from "./containers/Cart";
 import Product from "./containers/Product";
 
@@ -17,8 +17,8 @@ function App() {
             <Router>
                 <header>
                     <nav className={styles.navBar}>
-                        <Link to="./Home" className={styles.navBar_link}>
-                            Home
+                        <Link to="./Products" className={styles.navBar_link}>
+                            Products
                         </Link>
                         <Link to="./Cart" className={styles.navBar_link}>
                             Cart
@@ -27,16 +27,16 @@ function App() {
                 </header>
                 <Switch>
                     <Route exact path="/">
-                        <Redirect to="/home" />
+                        <Redirect to="/Products" />
                     </Route>
-                    <Route exact path="/product/home">
-                        <Redirect to="/Home" />
+                    <Route exact path="/product/products">
+                        <Redirect to="/Products" />
                     </Route>
                     <Route exact path="/product/cart">
                         <Redirect to="/Cart" />
                     </Route>
-                    <Route exact path="/home">
-                        <Home />
+                    <Route exact path="/Products">
+                        <Products />
                     </Route>
                     <Route exact path="/cart">
                         <Cart />

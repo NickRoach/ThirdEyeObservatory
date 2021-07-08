@@ -1,7 +1,9 @@
+@import "../../styles/Palette.scss";
+
 .cart {
     justify-content: center;
     &_heading {
-        color: bisque;
+        color: $mainHeading;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
     }
@@ -10,6 +12,5 @@
 .cartDisplay {
     display: flex;
     flex-wrap: wrap;
-    // grid-template-columns: 1fr, 1fr, 1fr;
     grid-gap: 10px;
 }

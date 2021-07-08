@@ -1,3 +1,5 @@
+@import "../../styles/Palette.scss";
+
 .display {
     display: flex;
     flex-wrap: wrap;
@@ -6,10 +8,10 @@
     grid-gap: 10px;
 }
 
-.home {
+.products {
     height: 100%;
     &_heading {
-        color: bisque;
+        color: $mainHeading;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
     }

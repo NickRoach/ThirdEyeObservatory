@@ -1,11 +1,5 @@
 import styles from "./ProductCard.module.scss";
-import {
-    addToCart,
-    getCart,
-    removeFromCart,
-} from "../../services/fireStoreCRUD/fireStoreCRUD";
-import { useEffect, useState, useStateRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartUpdater } from "../../components/CartUpdater/CartUpdater.jsx";
 
 export const ProductCard = ({ product, userName }) => {
@@ -23,14 +17,17 @@ export const ProductCard = ({ product, userName }) => {
                 </Link>
             </div>
             <div className={styles.productName}>{product.identifier}</div>
+            <div className={styles.priceAndCartUD}>
+                <div className={styles.price}>
+                    Unit price: ${product.unitPrice}
+                </div>
 
-            <div className={styles.price}>Unit price: ${product.unitPrice}</div>
-
-            <CartUpdater
-                product={product}
-                userName={userName}
-                quantity={quantity}
-            />
+                <CartUpdater
+                    product={product}
+                    userName={userName}
+                    quantity={quantity}
+                />
+            </div>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import styles from "./Home.module.scss";
+import styles from "./Products.module.scss";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../services/fireStoreCRUD/fireStoreCRUD";
 import { ProductCard } from "../../components/ProductCard/ProductCard";
@@ -7,7 +7,7 @@ import { ProductCard } from "../../components/ProductCard/ProductCard";
 
 import { userName } from "../../services/Cart/userName";
 
-const Home = () => {
+export const Products = () => {
     const [products, setProducts] = useState([]);
     const getData = async () => {
         const data = await getProducts();
@@ -19,8 +19,8 @@ const Home = () => {
     }, []);
 
     return (
-        <div className={styles.home}>
-            <h2 className={styles.home_heading}>
+        <div className={styles.products}>
+            <h2 className={styles.products_heading}>
                 Third Eye Observatory Astrophotography
             </h2>
             <div className={styles.display}>
@@ -36,4 +36,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Products;

@@ -26,7 +26,7 @@ export const CartUpdater = ({ product, userName, quantity }) => {
 
     const addHandler = (event) => {
         setCurrentQuant(++currentQuant);
-        quantity(currentQuant); /////////////////////////////////////////////////////////////
+        quantity(currentQuant);
 
         // updateFirebase
         addToCart(product.id, 1, userName);
@@ -35,7 +35,7 @@ export const CartUpdater = ({ product, userName, quantity }) => {
     const removeHandler = (event) => {
         if (currentQuant > 0) {
             setCurrentQuant(--currentQuant);
-            quantity(currentQuant); ///////////////////////////////////////////////////////////////
+            quantity(currentQuant);
         }
         removeFromCart(product.id, 1, userName);
     };
@@ -46,11 +46,11 @@ export const CartUpdater = ({ product, userName, quantity }) => {
 
     return (
         <div className={styles.cartUpdater}>
-            <p>Quantity in cart</p>
+            <p className={styles.quantity}>Quantity</p>
             <button className={styles.button} onClick={removeHandler}>
                 -
             </button>
-            <p>{currentQuant}</p>
+            <p className={styles.currentQuant}>{currentQuant}</p>
 
             <button className={styles.button} onClick={addHandler}>
                 +

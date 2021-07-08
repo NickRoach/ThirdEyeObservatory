@@ -1,6 +1,8 @@
+@import "../../styles/Palette.scss";
+
 .product {
     &_heading {
-        color: bisque;
+        color: $mainHeading;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
     }
@@ -8,7 +10,7 @@
 
 .image {
     height: 70vh;
-    border: 2px solid bisque;
+    border: 2px solid $mainHeading;
     margin: 10px;
 }
 
@@ -21,17 +23,36 @@
 .imageDescContainer {
     display: flex;
     flex-direction: row;
-    background: rgb(84, 146, 175);
+    background: $cardBackground_2;
 }
 
 .description {
     padding: 20px;
     &_heading {
-        color: bisque;
+        color: $midHeading;
+        font-family: $descriptionFontFamily;
     }
     &_content {
-        font-size: 15px;
+        font-size: 17px;
         text-align: justify;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: $descriptionFontFamily;
+        font-weight: 200;
+        color: $textDescription;
     }
+}
+
+.unitPrice {
+    font-size: 25px;
+    // text-align: justify;
+    font-family: $descriptionFontFamily;
+    font-weight: 200;
+    color: $textDescription;
+    margin-right: 30px;
+}
+
+.priceAndQuant {
+    color: $textDescription;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
 }
