@@ -4,20 +4,33 @@
     border-radius: 10px;
     width: 20vw;
     background-color: #b9d1d393;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.062);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.062);
     &:hover {
-        box-shadow: 0px 0px 5px 10px rgba(255, 255, 255, 0.205);
+        box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.205);
     }
+}
+
+.imageContainer {
+    height: 31vw;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.418);
+    border-radius: 4px;
 }
 
 .productImage {
     width: 100%;
 }
 
-.cartUpdater {
+.productName {
+    font-family: Arial, Helvetica, sans-serif;
+    color: burlywood;
+}
+
+.titlePriceContainer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    height: 30px;
+    justify-content: space-around;
     align-items: center;
 }

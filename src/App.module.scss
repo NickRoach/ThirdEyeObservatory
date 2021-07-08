@@ -1,3 +1,28 @@
 .body {
     background-color: rgb(29, 29, 29);
+    min-height: 100%;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.082);
+    height: 30px;
+
+    &_link {
+        color: rgba(255, 255, 255, 0.548);
+        font-family: Arial, Helvetica, sans-serif;
+        text-size: 18px;
+        margin-left: 15vw;
+        margin-right: 15vw;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+        // &:active {
+        //     text-color: red;
+        // }
+    }
 }

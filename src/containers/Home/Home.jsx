@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../../services/fireStoreCRUD/fireStoreCRUD";
 import { ProductCard } from "../../components/ProductCard/ProductCard";
 
-const userName = "cart1"; //cart1 is a user identifier. It is hard coded for now, but would be dynamically assigned in a real application
+// const userName = "cart1"; //cart1 is a user identifier. It is hard coded for now, but would be dynamically assigned in a real application
+
+import { userName } from "../../services/Cart/userName";
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -18,7 +20,9 @@ const Home = () => {
 
     return (
         <div className={styles.home}>
-            <h2 className={styles.home_heading}>This is the Home page</h2>
+            <h2 className={styles.home_heading}>
+                Third Eye Observatory Astrophotography
+            </h2>
             <div className={styles.display}>
                 {products.map((product) => (
                     <ProductCard

@@ -16,9 +16,13 @@ function App() {
         <div className={styles.body}>
             <Router>
                 <header>
-                    <nav className="navBar">
-                        <Link to="./Home">Home</Link>
-                        <Link to="./Cart">Cart</Link>
+                    <nav className={styles.navBar}>
+                        <Link to="./Home" className={styles.navBar_link}>
+                            Home
+                        </Link>
+                        <Link to="./Cart" className={styles.navBar_link}>
+                            Cart
+                        </Link>
                     </nav>
                 </header>
                 <Switch>

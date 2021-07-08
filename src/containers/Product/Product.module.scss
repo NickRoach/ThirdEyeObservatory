@@ -1,3 +1,11 @@
+.product {
+    &_heading {
+        color: bisque;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+}
+
 .image {
     height: 70vh;
     border: 2px solid rgb(84, 146, 175);
@@ -6,4 +14,10 @@
 .productCard {
     // width: 300px;
     // border: 2px solid blue;
+}
+
+.imageDescContainer {
+    display: flex;
+    flex-direction: row;
+    background: rgb(84, 146, 175);
 }

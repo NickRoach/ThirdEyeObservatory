@@ -1,13 +1,16 @@
 .display {
     display: flex;
     flex-wrap: wrap;
-    grid-template-columns: 1fr, 1fr, 1fr;
+    justify-content: center;
+    // grid-template-columns: 1fr, 1fr, 1fr;
     grid-gap: 10px;
 }
 
 .home {
+    height: 100%;
     &_heading {
         color: bisque;
         font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
     }
 }

@@ -36,7 +36,7 @@ const Cart = () => {
 
     return (
         <div className={styles.cart}>
-            <h2>This is the Cart page</h2>
+            <h2 className={styles.cart_heading}>Cart</h2>
             <div className={styles.cartDisplay}>
                 {cartProducts.map((entry) => {
                     console.log(entry);
