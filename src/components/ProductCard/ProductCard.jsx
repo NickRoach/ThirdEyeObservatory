@@ -9,6 +9,8 @@ import { Link, useLocation } from "react-router-dom";
 import { CartUpdater } from "../../components/CartUpdater/CartUpdater.jsx";
 
 export const ProductCard = ({ product, userName }) => {
+    const quantity = () => {};
+
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>
@@ -24,7 +26,11 @@ export const ProductCard = ({ product, userName }) => {
 
             <div className={styles.price}>Unit price: ${product.unitPrice}</div>
 
-            <CartUpdater product={product} userName={userName} />
+            <CartUpdater
+                product={product}
+                userName={userName}
+                quantity={quantity}
+            />
         </div>
     );
 };

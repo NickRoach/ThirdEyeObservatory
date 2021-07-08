@@ -18,6 +18,8 @@ const Product = () => {
         getData();
     }, []);
 
+    const quantity = () => {};
+
     return (
         <div className={styles.productCard}>
             {product ? (
@@ -32,14 +34,19 @@ const Product = () => {
                             alt=""
                             className={styles.image}
                         />
-                        <div>
-                            <h4>Description:</h4>
-                            <h5>{product.description}</h5>
+                        <div className={styles.description}>
+                            <h4 className={styles.description_heading}>
+                                Description:
+                            </h4>
+                            <h5 className={styles.description_content}>
+                                {product.description}
+                            </h5>
                             <h2>${product.unitPrice}</h2>
                             <CartUpdater
                                 product={product}
                                 key={product.id}
                                 userName={userName}
+                                quantity={quantity}
                             />
                         </div>
                     </div>

@@ -2,46 +2,54 @@ import styles from "./CartProductCard.module.scss";
 import CartUpdater from "../CartUpdater/CartUpdater.jsx";
 
 import { getCart } from "../../services/fireStoreCRUD/fireStoreCRUD";
-import { useEffect, useState, useStateRef } from "react";
+import { useEffect, useState, forceUpdate } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export const CartProductCard = ({ product, userName }) => {
+export const CartProductCard = ({ product, userName, unMount }) => {
     let [currentQuant, setCurrentQuant] = useState();
 
-    const getQuantity = async () => {
-        const productsObject = await getCart(userName);
-        const products = productsObject.products;
-
-        let currentAmount = 0;
-
-        //get the current cart numberOf for the item with this id
-        products.forEach((entry) => {
-            if (entry.productId === product.id) {
-                currentAmount = entry.numberOf;
-            }
-        });
-        setCurrentQuant(currentAmount);
+    const quantity = (x) => {
+        if (x === 0) {
+            unMount();
+        }
+        setCurrentQuant(x);
     };
 
     useEffect(() => {
-        getQuantity();
+        quantity(currentQuant);
     }, []);
 
     return (
         <div className={styles.card}>
-            <div className={styles.productName}>{product.identifier}</div>
-            <div className="price">${product.unitPrice}</div>
-            <div>
-                <Link to={`/product/${product.id}`}>
-                    <img
-                        src={product.imgURL}
-                        alt=""
-                        className={styles.productImage}
-                    />
-                </Link>
-            </div>
+            <div className={styles.container}>
+                <div>
+                    <Link to={`/product/${product.id}`}>
+                        <img
+                            src={product.imgURL}
+                            alt=""
+                            className={styles.productImage}
+                        />
+                    </Link>
+                </div>
 
-            <CartUpdater product={product} userName={userName} />
+                <div className={styles.productName}>{product.identifier}</div>
+                <div className={styles.price}>
+                    Unit Price: ${product.unitPrice}
+                </div>
+
+                <div>
+                    <CartUpdater
+                        product={product}
+                        userName={userName}
+                        key={product.id}
+                        quantity={quantity}
+                    />
+                </div>
+
+                <div className={styles.totalPrice}>
+                    Item cumulative price: ${currentQuant * product.unitPrice}
+                </div>
+            </div>
         </div>
     );
 };

@@ -45,7 +45,7 @@ function App() {
                         <Product />
                     </Route>
                 </Switch>
-                <footer>
+                <footer className={styles.footer}>
                     <p>Copyright 2021</p>
                 </footer>
             </Router>

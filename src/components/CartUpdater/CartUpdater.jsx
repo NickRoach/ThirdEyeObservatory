@@ -7,7 +7,7 @@ import {
 
 import { useEffect, useState } from "react";
 
-export const CartUpdater = ({ product, userName }) => {
+export const CartUpdater = ({ product, userName, quantity }) => {
     let [currentQuant, setCurrentQuant] = useState();
     const getQuantity = async () => {
         const productsObject = await getCart(userName);
@@ -20,18 +20,22 @@ export const CartUpdater = ({ product, userName }) => {
                 currentAmount = entry.numberOf;
             }
         });
+        quantity(currentAmount);
         setCurrentQuant(currentAmount);
     };
 
-    const addHandler = () => {
+    const addHandler = (event) => {
         setCurrentQuant(++currentQuant);
+        quantity(currentQuant); /////////////////////////////////////////////////////////////
+
+        // updateFirebase
         addToCart(product.id, 1, userName);
-        // updateCount();
     };
 
-    const removeHandler = () => {
+    const removeHandler = (event) => {
         if (currentQuant > 0) {
             setCurrentQuant(--currentQuant);
+            quantity(currentQuant); ///////////////////////////////////////////////////////////////
         }
         removeFromCart(product.id, 1, userName);
     };
