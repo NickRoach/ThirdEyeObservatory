@@ -4,7 +4,8 @@
     &_heading {
         color: $mainHeading;
         font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
+        text-align: left;
+        margin-top: 0;
     }
 }
 
@@ -17,13 +18,13 @@
 .productCard {
     width: 70vw;
     margin: auto;
-    // border: 2px solid blue;
 }
 
 .imageDescContainer {
     display: flex;
     flex-direction: row;
     background: $cardBackground_2;
+    margin-top: 20px;
 }
 
 .description {

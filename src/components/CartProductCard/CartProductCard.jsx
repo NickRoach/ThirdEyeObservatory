@@ -1,13 +1,13 @@
 import styles from "./CartProductCard.module.scss";
 import CartUpdater from "../CartUpdater/CartUpdater.jsx";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { getCart } from "../../services/fireStoreCRUD/fireStoreCRUD";
-import { useEffect, useState, forceUpdate } from "react";
-import { Link, useLocation } from "react-router-dom";
-
+//this card displays each product on the cart page
 export const CartProductCard = ({ product, userName, unMount }) => {
     let [currentQuant, setCurrentQuant] = useState();
 
+    //this is to trigger a re-render when the quantity of the item is adjusted to zero
     const quantity = (x) => {
         if (x === 0) {
             unMount();

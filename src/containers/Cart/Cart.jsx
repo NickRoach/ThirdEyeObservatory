@@ -4,10 +4,8 @@ import { CartProductCard } from "../../components/CartProductCard/CartProductCar
 import {
     getCart,
     getProduct,
-    addToCart,
 } from "../../services/fireStoreCRUD/fireStoreCRUD";
-
-const userName = "cart1"; //cart1 is a user identifier. It is hard coded for now, but would be dynamically assigned in a real application
+import { userName } from "../../services/Cart/userName";
 
 const Cart = () => {
     const [cartProducts, setCartProducts] = useState([]);
@@ -19,6 +17,7 @@ const Cart = () => {
         return prodArr;
     };
 
+    //returns an array of product objects according to what was listed in the cart
     const getCartProductArr = async () => {
         const cartArr = await getCartObjectArr();
         const promiseArr = cartArr.map((entry) => {
@@ -32,8 +31,8 @@ const Cart = () => {
         getCartProductArr();
     }, []);
 
+    //don't ask me to explain this. It just works. It triggers a re-render of the cart page when one of the cart item quantities is adjusted to zero
     const unMount = async () => {
-        // console.log("unMount was called");
         await getCartProductArr();
         getCartProductArr();
     };

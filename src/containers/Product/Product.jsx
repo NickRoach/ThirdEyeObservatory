@@ -5,10 +5,13 @@ import { CartUpdater } from "../../components/CartUpdater/CartUpdater.jsx";
 import styles from "./Product.module.scss";
 import { userName } from "../../services/Cart/userName";
 
+//this is the page that displays a larger image of the item and a description
 const Product = () => {
+    //"id" comes from the URL that has been requested
     const { id } = useParams();
     const [product, setProduct] = useState([]);
 
+    //get the product object with that id from firebase
     const getData = async () => {
         const data = await getProduct(id);
         setProduct(data);
@@ -18,16 +21,13 @@ const Product = () => {
         getData();
     }, []);
 
+    //"quantity" is a function that is passed down to the "CartUpdater" components located on the "ProductCard" components. In this case it doesn't need to do anything when the item cart quantity is reduced to zero, so this is a function that does nothing. Hooray!
     const quantity = () => {};
 
     return (
         <div className={styles.productCard}>
             {product ? (
                 <div>
-                    <h2 className={styles.product_heading}>
-                        {product.identifier}
-                    </h2>
-
                     <div className={styles.imageDescContainer}>
                         <img
                             src={product.imgURL}
@@ -35,9 +35,9 @@ const Product = () => {
                             className={styles.image}
                         />
                         <div className={styles.description}>
-                            <h4 className={styles.description_heading}>
-                                Description:
-                            </h4>
+                            <h2 className={styles.product_heading}>
+                                {product.identifier}
+                            </h2>
                             <h5 className={styles.description_content}>
                                 {product.description}
                             </h5>

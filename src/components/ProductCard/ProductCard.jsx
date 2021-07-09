@@ -2,6 +2,7 @@ import styles from "./ProductCard.module.scss";
 import { Link } from "react-router-dom";
 import { CartUpdater } from "../../components/CartUpdater/CartUpdater.jsx";
 
+//these cards display the products on the "produts" page
 export const ProductCard = ({ product, userName }) => {
     const quantity = () => {};
 
