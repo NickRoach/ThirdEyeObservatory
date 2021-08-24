@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/ecommerce-website/build/static/css/main.e34af4de.chunk.css",
-    "main.js": "/ecommerce-website/build/static/js/main.352a795a.chunk.js",
-    "main.js.map": "/ecommerce-website/build/static/js/main.352a795a.chunk.js.map",
-    "runtime-main.js": "/ecommerce-website/build/static/js/runtime-main.97cf728e.js",
-    "runtime-main.js.map": "/ecommerce-website/build/static/js/runtime-main.97cf728e.js.map",
-    "static/js/2.dbba69ce.chunk.js": "/ecommerce-website/build/static/js/2.dbba69ce.chunk.js",
-    "static/js/2.dbba69ce.chunk.js.map": "/ecommerce-website/build/static/js/2.dbba69ce.chunk.js.map",
-    "static/js/3.0465f789.chunk.js": "/ecommerce-website/build/static/js/3.0465f789.chunk.js",
-    "static/js/3.0465f789.chunk.js.map": "/ecommerce-website/build/static/js/3.0465f789.chunk.js.map",
-    "index.html": "/ecommerce-website/build/index.html",
-    "static/css/main.e34af4de.chunk.css.map": "/ecommerce-website/build/static/css/main.e34af4de.chunk.css.map",
-    "static/js/2.dbba69ce.chunk.js.LICENSE.txt": "/ecommerce-website/build/static/js/2.dbba69ce.chunk.js.LICENSE.txt"
+    "main.css": "/ThirdEyeObservatory/build/static/css/main.e34af4de.chunk.css",
+    "main.js": "/ThirdEyeObservatory/build/static/js/main.352a795a.chunk.js",
+    "main.js.map": "/ThirdEyeObservatory/build/static/js/main.352a795a.chunk.js.map",
+    "runtime-main.js": "/ThirdEyeObservatory/build/static/js/runtime-main.f1360961.js",
+    "runtime-main.js.map": "/ThirdEyeObservatory/build/static/js/runtime-main.f1360961.js.map",
+    "static/js/2.fa335235.chunk.js": "/ThirdEyeObservatory/build/static/js/2.fa335235.chunk.js",
+    "static/js/2.fa335235.chunk.js.map": "/ThirdEyeObservatory/build/static/js/2.fa335235.chunk.js.map",
+    "static/js/3.0465f789.chunk.js": "/ThirdEyeObservatory/build/static/js/3.0465f789.chunk.js",
+    "static/js/3.0465f789.chunk.js.map": "/ThirdEyeObservatory/build/static/js/3.0465f789.chunk.js.map",
+    "index.html": "/ThirdEyeObservatory/build/index.html",
+    "static/css/main.e34af4de.chunk.css.map": "/ThirdEyeObservatory/build/static/css/main.e34af4de.chunk.css.map",
+    "static/js/2.fa335235.chunk.js.LICENSE.txt": "/ThirdEyeObservatory/build/static/js/2.fa335235.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.97cf728e.js",
-    "static/js/2.dbba69ce.chunk.js",
+    "static/js/runtime-main.f1360961.js",
+    "static/js/2.fa335235.chunk.js",
     "static/css/main.e34af4de.chunk.css",
     "static/js/main.352a795a.chunk.js"
   ]
