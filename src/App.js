@@ -14,7 +14,7 @@ import Product from "./containers/Product";
 function App() {
     return (
         <div className={styles.body}>
-            <Router>
+            <Router basename="/index.html">
                 <header>
                     <nav className={styles.navBar}>
                         <Link to="./Products" className={styles.navBar_link}>
