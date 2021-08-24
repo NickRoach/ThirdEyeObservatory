@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ThirdEyeObservatory/static/css/main.e34af4de.chunk.css",
+    "main.js": "/ThirdEyeObservatory/static/js/main.352a795a.chunk.js",
+    "main.js.map": "/ThirdEyeObservatory/static/js/main.352a795a.chunk.js.map",
+    "runtime-main.js": "/ThirdEyeObservatory/static/js/runtime-main.ef18de3f.js",
+    "runtime-main.js.map": "/ThirdEyeObservatory/static/js/runtime-main.ef18de3f.js.map",
+    "static/js/2.c0703236.chunk.js": "/ThirdEyeObservatory/static/js/2.c0703236.chunk.js",
+    "static/js/2.c0703236.chunk.js.map": "/ThirdEyeObservatory/static/js/2.c0703236.chunk.js.map",
+    "static/js/3.0465f789.chunk.js": "/ThirdEyeObservatory/static/js/3.0465f789.chunk.js",
+    "static/js/3.0465f789.chunk.js.map": "/ThirdEyeObservatory/static/js/3.0465f789.chunk.js.map",
+    "index.html": "/ThirdEyeObservatory/index.html",
+    "static/css/main.e34af4de.chunk.css.map": "/ThirdEyeObservatory/static/css/main.e34af4de.chunk.css.map",
+    "static/js/2.c0703236.chunk.js.LICENSE.txt": "/ThirdEyeObservatory/static/js/2.c0703236.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ef18de3f.js",
+    "static/js/2.c0703236.chunk.js",
+    "static/css/main.e34af4de.chunk.css",
+    "static/js/main.352a795a.chunk.js"
+  ]
+}
