@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./App.module.scss";
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link,
@@ -14,7 +14,7 @@ import Product from "./containers/Product";
 function App() {
     return (
         <div className={styles.body}>
-            <Router basename="/index.html">
+            <Router basename="/index.html" baseline="/">
                 <header>
                     <nav className={styles.navBar}>
                         <Link to="./Products" className={styles.navBar_link}>
